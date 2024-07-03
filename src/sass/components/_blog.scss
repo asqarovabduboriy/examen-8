@@ -1,0 +1,118 @@
+.blog_info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.blog_info h3 {
+    color: rgb(69, 69, 69);
+    font-family: "Manrope";
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 130%;
+    letter-spacing: 0%;
+    text-align: left;
+    width: 310px;
+    margin: 25px 0;
+}
+
+.blog p {
+    color: rgb(69, 69, 69);
+    font-family: "Manrope";
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 110%;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.blogs_wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    margin-top: 40px;
+}
+
+.line {
+    border: 1px solid rgb(0, 0, 0);
+    opacity: 0.1;
+    margin: 30px 0;
+
+}
+
+.wrapper_swiper {
+    display: none;
+}
+
+@media (max-width: 990px) {
+    .blogs_wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 890px) {
+    .blogs_wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+}
+
+@media (max-width: 500px) {
+    .blog__img img {
+        width: 100%;
+    }
+}
+
+.blogs_text_wraper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 105px;
+}
+
+.blogs_text_wraper h2 {
+    color: rgb(69, 69, 69);
+    font-family: "Manrope";
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 55px;
+    letter-spacing: 0%;
+    text-align: left;
+    width: 330px;
+}
+
+.blogs_text_wraper p {
+    width: 640px;
+    color: rgb(69, 69, 69);
+    font-family: "Manrope";
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 150%;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.div_blog{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+@media (max-width: 980px) {
+    .blogs_text_wraper{
+        flex-direction: column;
+        margin-top: 70px;
+        gap: 30px;
+    }
+
+    .blogs_text_wraper h2{
+        width: 100%;
+        text-align: center;
+    }
+
+    .blogs_text_wraper p{
+        width: 100%;
+        text-align: center;
+    }
+}

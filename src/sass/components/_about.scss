@@ -1,0 +1,92 @@
+.about_title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: rgb(69, 69, 69);
+  margin-top: 40px;
+}
+
+.card_about {
+    width: 530px;
+  border-radius: 15px;
+  background: rgb(242, 242, 242);
+  padding: 32px;
+  display: grid;
+  gap: 80px;
+}
+
+.card_about h1 {
+  color: rgb(69, 69, 69);
+  font-family: "Manrope";
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 110%;
+  letter-spacing: 0%;
+  text-align: left;
+}
+
+.card_about h3 {
+  color: rgb(69, 69, 69);
+  font-family: "Manrope";
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: 0%;
+  text-align: left;
+}
+
+.cards_about_wrapper {
+  display: grid;
+  grid-gap: 20px;
+}
+
+.text_about_wrapper {
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+  p {
+    color: rgb(69, 69, 69);
+    font-family: "Manrope";
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 150%;
+    letter-spacing: 0%;
+    text-align: left;
+    width: 640px;
+  }
+}
+
+
+.flex_big_wrapper_about{
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 990px) {
+    .flex_big_wrapper_about{
+        flex-direction: column;
+        align-items: center;
+
+        .card_about{
+            width: 100%;
+        }
+
+        .cards_about_wrapper{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    .text_about_wrapper {
+        margin-top: 40px;
+        p{
+            text-align: center;
+            width: 100%;
+        }
+    }
+
+
+}

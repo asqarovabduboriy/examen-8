@@ -1,0 +1,25 @@
+@use "./components/banner";
+@use "./components/blog";
+@use "./components/brand";
+@use "./components/footer";
+@use "./components/navbar";
+@use "./components/product";
+@use "./components/kampaniya";
+@use "./components/main";
+@use "./components/mobilni";
+@use "./components/modal";
+@use "./components/search";
+@use "./components/about";
+@use "./components/catalog";
+
+
+.title_all_product {
+  color: rgb(69, 69, 69);
+  font-family: "Manrope";
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 55px;
+  letter-spacing: 0%;
+  text-align: left;
+  margin: 20px 0;
+}
