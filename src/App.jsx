@@ -10,6 +10,7 @@ import Blog from "./components/Blog/Blog.jsx";
 import Like from "./page/Like/Like.jsx";
 import Catolg from "./page/catalog/Catolg.jsx";
 import About from "./page/About/About.jsx";
+import Single from "./page/Single/Single.jsx";
 
 function App() {  
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/like" element={<Like/>} />
         <Route path="/katalok" element={<Catolg/>}/>
         <Route path="/Окомпании"   element={<About/>} />   
+        <Route path="/product/:id" element={<Single />} />
         </Routes>
       <Footer />
     </>

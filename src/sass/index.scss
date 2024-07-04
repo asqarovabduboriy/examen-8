@@ -11,7 +11,8 @@
 @use "./components/search";
 @use "./components/about";
 @use "./components/catalog";
-
+@use "./components/single";
+@use "./components/loading";
 
 .title_all_product {
   color: rgb(69, 69, 69);

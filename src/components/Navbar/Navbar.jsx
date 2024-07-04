@@ -138,7 +138,7 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-          {search.trim() ? <Search data={filteredData} /> : <></>}
+          {search.trim() ? <Search setSearch={setSearch} data={filteredData} /> : <></>}
         </div>
       </header>
       {modal ? (
