@@ -52,7 +52,7 @@ const Kampaniya = () => {
   return (
     <>
       <div className="container">
-       <Return  title='Почему NORNLIGHT?' btn='О компании'/>
+       <Return  title='Почему NORNLIGHT?' btn='О компании' path={'/Окомпании'}/>
         <div className="kompaniya_wrapper">{datas}</div>
       </div>
     </>

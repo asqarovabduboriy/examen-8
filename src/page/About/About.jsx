@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Brand from "../../components/Brand/Brand";
 import Blog from "../../components/Blog/Blog";
 
@@ -21,6 +21,10 @@ const About = () => {
       count: "170+",
     },
   ];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const cards = data.map((item) => (
     <div className="card_about " key={item.id}>

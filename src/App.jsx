@@ -11,20 +11,24 @@ import Like from "./page/Like/Like.jsx";
 import Catolg from "./page/catalog/Catolg.jsx";
 import About from "./page/About/About.jsx";
 import Single from "./page/Single/Single.jsx";
+import Contact from "./page/contact/Contact.jsx";
+import Dostavka from "./page/Dostavka/dastavka.jsx";
 
-function App() {  
+function App() {
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/AllProduct" element={<AllProduct />} />
         <Route path="/Блог" element={<Blog count={6} />} />
-        <Route path="/like" element={<Like/>} />
-        <Route path="/katalok" element={<Catolg/>}/>
-        <Route path="/Окомпании"   element={<About/>} />   
+        <Route path="/like" element={<Like />} />
+        <Route path="/katalok" element={<Catolg />} />
+        <Route path="/Окомпании" element={<About />} />
         <Route path="/product/:id" element={<Single />} />
-        </Routes>
+        <Route path="/Контакты" element={<Contact />} />
+        <Route path="/Доставкаиоплата" element={<Dostavka/>}/>
+      </Routes>
       <Footer />
     </>
   );

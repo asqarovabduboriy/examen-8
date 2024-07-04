@@ -1,0 +1,72 @@
+.text_wrapper_payment {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px;
+
+  h1 {
+    color: rgb(69, 69, 69);
+    font-family: "Manrope";
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 110%;
+    letter-spacing: 0%;
+    text-align: left;
+    width: 319px;
+  }
+}
+
+.text_oplata_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 25px;
+
+
+  h2 {
+    color: rgb(0, 0, 0);
+    font-family: "Manrope";
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 140%;
+    letter-spacing: 0%;
+    text-align: left;
+  }
+
+  p {
+    font-family: "Manrope";
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0%;
+    text-align: left;
+    width: 640px;
+
+  }
+
+  span{
+    color:rgba(47, 77, 163, 1);
+  }
+}
+
+
+@media (max-width: 990px) {
+    .text_wrapper_payment{
+        flex-direction: column;
+        h1{
+            text-align: center;
+            font-size: 40px;
+            width: 100%;
+        }
+    } 
+}
+
+@media (max-width: 780px) {
+    .text_oplata_wrapper{
+
+
+        p{
+            width: 100%;
+        }
+
+    }
+}
