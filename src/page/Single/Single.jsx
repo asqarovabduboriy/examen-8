@@ -1,13 +1,34 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useGetSingleProductQuery } from "../../context/products";
-import { FaInstagram, FaTelegramPlane, FaTwitter } from "react-icons/fa";
+import {
+  FaHeart,
+  FaInstagram,
+  FaTelegramPlane,
+  FaTwitter,
+} from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
 import Loading from "../../components/Loading/Loading";
+import { useSelector, useDispatch } from "react-redux";
+import { toogleLike } from "../../context/wishlistSlice";
+import {
+  addToCart,
+  incrementCartQuantity,
+  decrementCartQuantity,
+} from "../../context/cartSlice";
 
 const Single = () => {
   const { id } = useParams();
   const { data, isLoading } = useGetSingleProductQuery(id);
+
+  const dispatch = useDispatch();
+
+  const wishlist = useSelector((state) => state.wishslice);
+  const cart = useSelector((state) => state.cart);
+  const quantity = cart.value?.find((el) => el.id === data?.id)?.quantity || 0;
+
+  const total = data?.price * quantity;
+ 
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -41,22 +62,48 @@ const Single = () => {
               </div>
               <b>В наличии</b>
               <div className="single_price">
-                <h2>{data?.price}₽</h2>
+                <h2>{ cart.value.find((item) => item.id === data.id) ? total : data?.price }₽</h2>
                 <h4>{data?.oldPrice}₽</h4>
               </div>
               <div className="des">
                 <p>{data?.des}</p>
               </div>
               <div className="btn_single_warpper">
-                <div className="increment_btn">
-                  <button>-</button>
-                  <p>1</p>
-                  <button>+</button>
-                </div>
+                {cart.value.find((item) => item.id === data.id) ? (
+                  <div className="increment_btn">
+                    <button disabled={quantity === 1}
+                      onClick={() => dispatch(decrementCartQuantity(data))}
+                    >
+                      -
+                    </button>
+                    <p>{quantity}</p>
+                    <button
+                    disabled={quantity === 5}
+                      onClick={() => dispatch(incrementCartQuantity(data))}
+                    >
+                      +
+                    </button>
+                  </div>
+                ) : (
+                  <></>
+                )}
                 <div className="btn_single">
-                  <button className="button_korzinka">В корзину</button>
-                  <button className="button_heart">
-                    <CiHeart />
+                  <button
+                    disabled={cart.value.find((item) => item.id === data.id)}
+                    className="button_korzinka"
+                    onClick={() => dispatch(addToCart(data))}
+                  >
+                    В корзину
+                  </button>
+                  <button
+                    className="button_heart"
+                    onClick={() => dispatch(toogleLike(data))}
+                  >
+                    {wishlist.value.find((item) => item.id === data.id) ? (
+                      <FaHeart style={{ color: "red" }} />
+                    ) : (
+                      <CiHeart />
+                    )}
                   </button>
                 </div>
               </div>
