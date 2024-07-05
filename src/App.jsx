@@ -13,6 +13,9 @@ import About from "./page/About/About.jsx";
 import Single from "./page/Single/Single.jsx";
 import Contact from "./page/contact/Contact.jsx";
 import Dostavka from "./page/Dostavka/dastavka.jsx";
+import Vozrat from "./page/vozrat/Vozrat.jsx";
+import Garanti from "./page/Garanti/Garanti.jsx";
+import Cart from "./page/Cart/Cart.jsx";
 
 function App() {
   return (
@@ -27,7 +30,10 @@ function App() {
         <Route path="/Окомпании" element={<About />} />
         <Route path="/product/:id" element={<Single />} />
         <Route path="/Контакты" element={<Contact />} />
-        <Route path="/Доставкаиоплата" element={<Dostavka/>}/>
+        <Route path="/Доставкаиоплата" element={<Dostavka />} />
+        <Route path="/Возврат" element={<Vozrat />} />
+        <Route path="/Гарантии" element={<Garanti />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
       <Footer />
     </>

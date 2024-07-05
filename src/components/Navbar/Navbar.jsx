@@ -21,6 +21,8 @@ const Navbar = () => {
   const [active, setActive] = useState(false);
 
   const wishlist = useSelector((state) => state.wishslice);
+  const cart = useSelector((state) => state.cart.value);
+
 
   const item = [
     "Окомпании",
@@ -89,9 +91,11 @@ const Navbar = () => {
               </div>
               <div className="icons_wrapper one">
                 <div className="one_icons">
-                 <Link to="/like" style={{ textDecoration: "none" }}>
-                 <div className="length_wishlist"><span>{wishlist.value.length}</span></div>
-                  <CiHeart  />
+                  <Link to="/like" style={{ textDecoration: "none" }}>
+                    <div className="length_wishlist">
+                      <span>{wishlist.value.length}</span>
+                    </div>
+                    <CiHeart />
                   </Link>
                   <p>Избранное</p>
                 </div>
@@ -101,14 +105,21 @@ const Navbar = () => {
                 </div>
 
                 <div className="one_icons">
-                  <FaShoppingCart />
+                  <Link to={"/cart"} style={{ textDecoration: "none" }}>
+                    <div className="length_wishlist">
+                      <span>{cart.length}</span>
+                    </div>
+                    <FaShoppingCart  style={{ color: "black" }} />
+                  </Link>
                   <p>Корзина</p>
                 </div>
               </div>
             </div>
             <div className="form_search">
               <button>
-                <Link to={'/katalok'}><RxHamburgerMenu /> Каталог</Link>
+                <Link to={"/katalok"}>
+                  <RxHamburgerMenu /> Каталог
+                </Link>
               </button>
               <input
                 type="text"
@@ -119,26 +130,42 @@ const Navbar = () => {
               <FaSearch className="search_iocns" />
             </div>
             <div className="icons_wrapper two">
-            <div className="one_icons">
-              
-                 <Link to="/like" style={{ textDecoration: "none", color: "black" }}>
-                 <div className="length_wishlist"><span>{wishlist.value.length}</span></div>
-                  <CiHeart  />
-                  </Link>
-                  <p>Избранное</p>
-                </div>
+              <div className="one_icons">
+                <Link
+                  to="/like"
+                  style={{ textDecoration: "none", color: "black" }}
+                >
+                  <div className="length_wishlist">
+                    <span>{wishlist.value.length}</span>
+                  </div>
+                  <CiHeart />
+                </Link>
+                <p>Избранное</p>
+              </div>
               <div className="one_icons">
                 <IoStatsChart />
                 <p>Сравнение</p>
               </div>
 
               <div className="one_icons">
-                <FaShoppingCart />
+                <Link
+                  to={"/cart"}
+                  style={{ textDecoration: "none", color: "black" }}
+                >
+                  <div className="length_wishlist">
+                    <span>{cart.length}</span>
+                  </div>
+                  <FaShoppingCart style={{ color: "black" }} />
+                </Link>
                 <p>Корзина</p>
               </div>
             </div>
           </div>
-          {search.trim() ? <Search setSearch={setSearch} data={filteredData} /> : <></>}
+          {search.trim() ? (
+            <Search setSearch={setSearch} data={filteredData} />
+          ) : (
+            <></>
+          )}
         </div>
       </header>
       {modal ? (
