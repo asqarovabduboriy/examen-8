@@ -6,9 +6,14 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { IoStatsChart } from "react-icons/io5";
 import Modal from "../modal/Modal";
 import { MdArrowRightAlt } from "react-icons/md";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const NavMobilni = ({ items, setIsOpen }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  const wishlist = useSelector((state) => state.wishslice);
+  const cart = useSelector((state) => state.cart.value);
 
   const handle_active = () => {
     setIsMenuOpen((p) => !p) ? setIsOpen(p=>!p) : setIsOpen(true);
@@ -24,7 +29,12 @@ const NavMobilni = ({ items, setIsOpen }) => {
             </button>
             <div className="icons_wrapper">
               <div className="one_icons">
-                <CiHeart />
+              <Link to="/like" style={{ textDecoration: "none" }}>
+                    <div className="length_wishlist">
+                      <span>{wishlist.value.length}</span>
+                    </div>
+                    <CiHeart />
+                  </Link>
                 <p>Избранное</p>
               </div>
               <div className="one_icons">
@@ -33,7 +43,12 @@ const NavMobilni = ({ items, setIsOpen }) => {
               </div>
 
               <div className="one_icons">
-                <FaShoppingCart />
+              <Link to={"/cart"} style={{ textDecoration: "none" }}>
+                    <div className="length_wishlist">
+                      <span>{cart.length}</span>
+                    </div>
+                    <FaShoppingCart style={{ color: "black" }} />
+                  </Link>
                 <p>Корзина</p>
               </div>
             </div>

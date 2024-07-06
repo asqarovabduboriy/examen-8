@@ -4,6 +4,7 @@ import { CiHeart } from 'react-icons/ci'
 import { FaHeart, FaShoppingCart } from 'react-icons/fa'
 import { useDispatch } from 'react-redux'
 import { toogleLike } from '../../context/wishlistSlice'
+import NoutFound from '../../page/notFound/NoutFound'
 
 const Like = () => {
      const like = useSelector(state => state.wishslice)
@@ -43,9 +44,15 @@ const Like = () => {
 
   return (
     <>
-    <div className="container">
-    <div className="product_wrapper">{products}</div>
-    </div>
+     {
+      like.value.length > 0 ? (
+        <div className="container">
+        <div className="product_wrapper">{products}</div>
+        </div>
+      ) : (
+        <NoutFound img={"https://cdn.dribbble.com/users/1010436/screenshots/13921028/dribble_shot_62_4x.jpg"}/>
+      )
+     }
     </>
   )
 }

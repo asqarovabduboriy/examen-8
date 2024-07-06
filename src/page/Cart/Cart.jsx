@@ -8,6 +8,7 @@ import {
 } from "../../context/cartSlice";
 import { MdOutlineDeleteOutline } from "react-icons/md";
 import { Link } from "react-router-dom";
+import NoutFound from '../../page/notFound/NoutFound'
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -59,7 +60,11 @@ const Cart = () => {
 
   return (
     <>
-      <div className="container">
+     {
+
+      cart.length > 0 ? (
+
+        <div className="container">
         <h1 className="cart_title">Корзина</h1>
         <div className="length_wishlist cart_page">
           <span>{cart.length}</span>
@@ -115,6 +120,14 @@ const Cart = () => {
           </div>
         </div>
       </div>
+      )
+      :(
+         
+        <NoutFound img={"https://www.adasglobal.com/img/empty-cart.png"}/>
+        
+      )
+
+     }
     </>
   );
 };

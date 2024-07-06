@@ -114,7 +114,7 @@ const Main = ({ count}) => {
   return (
     <>
       <div className="container">
-        <Return title="Каталог" btn="Весь каталог" />
+        <Return title="Каталог" btn="Весь каталог" path="/katalok" />
 
         <div className="card_wrapper">{cards}</div>
       </div>

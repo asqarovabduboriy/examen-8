@@ -23,6 +23,8 @@ import Create from "./page/Admin/create/Create.jsx";
 import Mange from "./page/Admin/mange/Mange.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import NoutFound from "./page/notFound/NoutFound.jsx";
+import img from './assets/imgs/404 (1).png'
 
 function App() {
   return (
@@ -48,6 +50,7 @@ function App() {
           </Route>
         </Route>
         <Route path="/login" element={<Login />} />
+        <Route path="*" element={<NoutFound img={img} />} />
       </Routes>
       <Footer />
 
