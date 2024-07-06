@@ -16,6 +16,8 @@
 @use "./components/contact";
 @use "./components/dostavka";
 @use "./components/carts";
+@use "./components/login";
+@use "./components/admin";
 
 .title_all_product {
   color: rgb(69, 69, 69);

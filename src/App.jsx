@@ -16,6 +16,13 @@ import Dostavka from "./page/Dostavka/dastavka.jsx";
 import Vozrat from "./page/vozrat/Vozrat.jsx";
 import Garanti from "./page/Garanti/Garanti.jsx";
 import Cart from "./page/Cart/Cart.jsx";
+import Login from "./page/Login/Login.jsx";
+import Auth from "./page/Auth/Auth.jsx";
+import Admin from "./page/Admin/Admin.jsx";
+import Create from "./page/Admin/create/Create.jsx";
+import Mange from "./page/Admin/mange/Mange.jsx";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -34,8 +41,17 @@ function App() {
         <Route path="/Возврат" element={<Vozrat />} />
         <Route path="/Гарантии" element={<Garanti />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/" element={<Auth />}>
+          <Route path="/admin" element={<Admin />}>
+            <Route path="create" element={<Create />} />
+            <Route path="mange" element={<Mange />} />
+          </Route>
+        </Route>
+        <Route path="/login" element={<Login />} />
       </Routes>
       <Footer />
+
+      <ToastContainer />
     </>
   );
 }

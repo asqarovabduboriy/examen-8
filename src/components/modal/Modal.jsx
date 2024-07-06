@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
 
-const Modal = ({children}) => {
+const Modal = ({ children,setEdit }) => {
   return (
-   <div className="container">
-    {children}
-   </div>
-  )
-}
+    <div className="container">
+      <div className="bg_fon" onClick={() => setEdit(null)}></div>
+      {children}
+    </div>
+  );
+};
 
-export default Modal
+export default Modal;

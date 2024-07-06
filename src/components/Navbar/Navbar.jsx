@@ -11,6 +11,7 @@ import { IoStatsChart } from "react-icons/io5";
 import Modal from "../../components/modal/Modal";
 import { MdArrowRightAlt } from "react-icons/md";
 import { useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const { data, isFetching, error } = useGetProductsQuery();
@@ -23,6 +24,36 @@ const Navbar = () => {
   const wishlist = useSelector((state) => state.wishslice);
   const cart = useSelector((state) => state.cart.value);
 
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    if (data) {
+      setFilteredData(
+        data.filter((item) =>
+          item.title.toLowerCase().includes(search.trim().toLowerCase())
+        )
+      );
+    }
+  }, [search, data]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setActive(true);
+      } else {
+        setActive(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  if (pathname.includes("login") || pathname.includes("admin")) {
+    return null;
+  }
 
   const item = [
     "Окомпании",
@@ -38,22 +69,6 @@ const Navbar = () => {
       <li>{item}</li>
     </Link>
   ));
-
-  useEffect(() => {
-    setFilteredData(
-      data?.filter((item) =>
-        item.title.toLowerCase().includes(search.trim().toLowerCase())
-      )
-    );
-  }, [search]);
-
-  window.addEventListener("scroll", function () {
-    if (window.scrollY > 100) {
-      setActive(true);
-    } else {
-      setActive(false);
-    }
-  });
 
   return (
     <>
@@ -79,11 +94,7 @@ const Navbar = () => {
                     {" "}
                     <RxHamburgerMenu />{" "}
                   </button>
-                  {isOpen ? (
-                    <NavMobilni setIsOpen={setIsOpen} items={items} />
-                  ) : (
-                    <></>
-                  )}
+                  {isOpen && <NavMobilni setIsOpen={setIsOpen} items={items} />}
                 </div>
                 <Link to="/">
                   <img src={logo} alt="" />
@@ -109,7 +120,7 @@ const Navbar = () => {
                     <div className="length_wishlist">
                       <span>{cart.length}</span>
                     </div>
-                    <FaShoppingCart  style={{ color: "black" }} />
+                    <FaShoppingCart style={{ color: "black" }} />
                   </Link>
                   <p>Корзина</p>
                 </div>
@@ -161,14 +172,10 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-          {search.trim() ? (
-            <Search setSearch={setSearch} data={filteredData} />
-          ) : (
-            <></>
-          )}
+          {search.trim() && <Search setSearch={setSearch} data={filteredData} />}
         </div>
       </header>
-      {modal ? (
+      {modal && (
         <Modal>
           <div className="modal_form" onClick={() => setModal((p) => !p)}>
             {" "}
@@ -184,8 +191,6 @@ const Navbar = () => {
             </div>
           </div>
         </Modal>
-      ) : (
-        <></>
       )}
     </>
   );

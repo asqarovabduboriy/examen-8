@@ -20,6 +20,7 @@ import {
 const Single = () => {
   const { id } = useParams();
   const { data, isLoading } = useGetSingleProductQuery(id);
+  console.log(data);
 
   const dispatch = useDispatch();
 
@@ -41,7 +42,7 @@ const Single = () => {
         <div className="container">
           <div className="single_big_flex">
             <div className="img_wrapper_single">
-              <img src={data?.imgs} alt="" />
+              <img src={data?.imgs[0]} alt="" />
             </div>
             <div className="single_info">
               <h3>{data?.title}</h3>

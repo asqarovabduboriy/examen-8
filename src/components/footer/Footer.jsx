@@ -2,7 +2,18 @@ import React from "react";
 import logo from "../../assets/imgs/Logo.svg";
 import cart from "../../assets/imgs/cart (1).png";
 
+import { useLocation } from "react-router-dom";
+
 const Footer = () => {
+
+
+  const { pathname } = useLocation();
+
+  if (pathname.includes("login") || pathname.includes("admin")) {
+    return <></>;
+  }
+
+
   const item = [
     "О компании",
     "Доставка и оплата",
