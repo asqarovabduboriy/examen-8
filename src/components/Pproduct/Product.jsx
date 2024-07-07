@@ -24,6 +24,8 @@ const Product = () => {
     sessionStorage.setItem("limit", limit + 4);
   };
 
+  
+
   const products = data?.slice(0, limit).map((product) => (
     <div key={product.id} className="product">
       <div className="like_product">
