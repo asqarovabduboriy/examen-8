@@ -7,6 +7,7 @@ import Loader from "../../components/loader/Loader";
 import { useSelector, useDispatch } from "react-redux";
 import { toogleLike } from "../../context/wishlistSlice";
 import { Link } from "react-router-dom";
+import {addToCart} from '../../context/cartSlice'
 
 const Product = () => {
   const { data, isLoading, error, isSuccess, isFetching } =
@@ -44,7 +45,7 @@ const Product = () => {
         <p className="old_price"> {product.oldPrice}₽</p>
         <div className="price">
           <p className="new_price">{product.price}₽</p>
-          <button>
+          <button onClick={() => dispatch(addToCart(product))}>
             <FaShoppingCart />
           </button>
         </div>
